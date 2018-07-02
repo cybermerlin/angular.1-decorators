@@ -98,7 +98,9 @@ describe('typescript', function () {
 	it('directive', () => {
 		let scope = this['$rootScope'].new();
 		let app = this['$compile']('<div ng-app="xxx"><pupi></pupi></div>')(scope);
+		scope.$digest();
 
-		expect(app.innerHTML).toBeTruthy();
+		// expect(app.innerHTML).toBeTruthy();
+		expect(app.html()).toContain('Hello spanch');
 	});
 });
