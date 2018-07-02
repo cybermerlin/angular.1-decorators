@@ -1,0 +1,42 @@
+{
+	"version": "2.9.1",
+	"compilerOptions": {
+		"target": "es5",
+		"outDir": "build/compiled",
+		"lib": [
+			"es5",
+			"es6",
+			"dom"
+		],
+		"types": [
+			"angular",
+			"angular-mocks",
+			"jasmine",
+			"node"
+		],
+		"module": "commonjs",
+		"moduleResolution": "classic",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"sourceMap": true,
+		"declaration": true,
+		"noFallthroughCasesInSwitch": true,
+		"suppressImplicitAnyIndexErrors": false,
+		"noImplicitAny": false,
+		"noImplicitReturns": false,
+		"stripInternal": true,
+		"pretty": true,
+		"strictNullChecks": false,
+		"noUnusedLocals": false,
+		"noLib" : false
+	},
+	"exclude": [
+		".vscode",
+		".vs",
+		".idea",
+		"server",
+		"temp",
+		"build",
+		"node_modules"
+	]
+}
