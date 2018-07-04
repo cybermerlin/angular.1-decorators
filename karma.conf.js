@@ -22,7 +22,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       // 'src/**/*.ts': ['karma-typescript'],
-      'test/**/*.ts': ['karma-typescript']
+      '**/*.ts': 'karma-typescript'
     },
 
     // possible values: 'dots', 'progress'
