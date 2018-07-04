@@ -59,7 +59,7 @@
  */
 import * as ng from "angular";
 import * as angular from "angular";
-import "angular-ui-router/index";
+import "angular-ui-router";
 
 
 /**

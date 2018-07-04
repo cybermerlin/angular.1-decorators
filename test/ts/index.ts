@@ -2,7 +2,7 @@
 // import "mocha";
 import * as angular from "angular";
 import * as ng from "angular";
-import "angular-ui-router/index";
+import "angular-ui-router";
 import "angular-mocks/angular-mocks";
 import {Component, Config, Directive, Inject, Module, Run, State} from "../../src/index";
 
@@ -81,7 +81,6 @@ describe('typescript', function () {
 	});
 
 	it('directive from inject', inject((_pupi_) => {
-		debugger;
 		this['pupi'] = _pupi_;
 		expect(this['$location'].path()).toBe('/startPage');
 		expect(this['pupi'].doSome()).toBe(123);

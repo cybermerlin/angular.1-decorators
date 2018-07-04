@@ -15,25 +15,21 @@ module.exports = function(config) {
     //   'build/compiled/test/**/*.js'
     // ],
     files: [
-      {pattern: 'src/**/*.ts'},
-      {pattern: 'test/**/*.ts'}
+      'src/**/*.ts',
+      'test/**/*.ts'
     ],
 
-
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    // preprocessors: {},
     preprocessors: {
       // 'src/**/*.ts': ['karma-typescript'],
-      'test/*.ts': ['karma-typescript']
+      'test/**/*.ts': ['karma-typescript']
     },
-
 
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage', 'karma-typescript'],
+    reporters: ['progress', 'coverage', 'karma-typescript', 'spec'],
     coverageIstanbulReporter: {
-      reports: ['html', 'lcovonly']/*,
-      fixWebpackSourcePaths: true*/
+      reports: ['html', 'lcovonly']
     },
 
     // port: 9876,
@@ -41,15 +37,31 @@ module.exports = function(config) {
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
-    // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    // browsers: ['PhantomJS'],
+    browsers: [/*'Chrome', */'MyChromeHeadless'],
+
+    customLaunchers: {
+      MyChromeHeadless: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--disable-gpu',
+          '--disable-translate',
+          '--disable-extensions',
+          // '--no-sandbox',
+          '--remote-debugging-port=9223'
+        ]
+      }
+    },
+
     plugins: [
-      'karma-phantomjs-launcher',
-      'karma-*'/*,
+      // 'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
+      'karma-*'
+      // '@angular/cli/plugins/karma' // for angular.6
+      /*,
         'karma-mocha-reporter'*/
     ],
 
@@ -73,6 +85,10 @@ module.exports = function(config) {
     concurrency: Infinity,
     mime: {
       'text/x-typescript': ['ts', 'tsx']
+    },
+
+    karmaTypescriptConfig: {
+      tsconfig: "./tsconfig.json"
     }
   });
 };
